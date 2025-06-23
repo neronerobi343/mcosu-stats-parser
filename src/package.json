@@ -1,0 +1,16 @@
+{
+  "name": "osu-score-display",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "tsx app.ts",
+    "build": "esbuild app.ts --platform=node --bundle --outfile=../app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/node": "^24.0.3"
+  }
+}
