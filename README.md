@@ -1,6 +1,6 @@
 # McOsu Player Stats Calculator
 
-This tool is for parsing the `scores.db` from a [McOsu!](https://github.com/McKay42/McOsu) installation and returns a JSON file with the following:
+This tool is for parsing the `scores.db` from a [McOsu](https://github.com/McKay42/McOsu) installation and returns a JSON file with the following:
 - username
 - pp
 - accuracy
@@ -27,4 +27,5 @@ Make sure the latest LTS version of Node is installed.
 ## Notes
 - This will _not_ work with `scores.db` from osu!stable, as the McOsu format is slightly different.
 
-
+## Credits
+- [McOsu](https://github.com/McKay42/McOsu) repo for referencing all the parsing and calculations.
