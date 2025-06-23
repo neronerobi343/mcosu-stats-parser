@@ -1,13 +1,13 @@
 # McOsu Player Stats Calculator
 
-This tool is for parsing the `scores.db` from a [McOsu](https://github.com/McKay42/McOsu) installation and returns a JSON file with the following:
+This tool is for parsing the `scores.db` from a McOsu installation and returns a JSON file with the following:
 - username
 - pp
 - accuracy
 - level
 - percentToNextLevel
 - totalScore
-- totalPPScores (i.e. scores that are taken into account in the PP calculation)
+- totalPPScores (i.e. number of scores that are taken into account in the PP calculation)
 
 ## Usage
 
