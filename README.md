@@ -33,7 +33,7 @@ Refer to `exampleStats.json` to see an output sample.
 Make sure the latest LTS version of Node is installed.
 
 ### Execution
-1. `git clone https://github.com/neronerobi343/mcosu-player-stats-calculator.git`
+1. `git clone https://github.com/neronerobi343/mcosu-stats-parser.git`
 2. `cd mcosu-player-stats-calculator && node app.js`
 
 ### Settings
