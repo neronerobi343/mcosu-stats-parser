@@ -55,6 +55,8 @@ Modify `settings.json` to change the settings of the tool.
 - When parsing top plays and recent scores from `scores.db`, if the score is set on a map that's not submitted to osu!'s beatmap listings, it'll skip it.
 - Use the top/recent score parsing at your discretion, as there's a rate limit to the osu! API.
     - There's a 250ms delay between each `fetch` call to the API to prevent overloading, but regardless,  parsing too many top/recent scores (>100) is not recommended.
+- The `rawPP` and `weightPP` attributes of each score in `recentScores` will always be the same, and the `weight` will always be 100.
+    - Usually recent scores won't be top scores so I didn't bother getting the weights to make the tool run faster.
 
 ## Credits
 - [McOsu repo](https://github.com/McKay42/McOsu) for referencing all the parsing and calculations.
