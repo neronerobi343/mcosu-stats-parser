@@ -1,6 +1,7 @@
 import { BufferReader } from "./BufferReader";
 
 export interface Score {
+	beatmapHash: string;
 	mode: number;
 	version: number;
 	unixTimestamp: bigint;
@@ -46,7 +47,8 @@ export class ScoresDbParser {
 		this._bufferReader = new BufferReader(scoresBuffer);
 	}
 	
-	parseScore(): Score {
+	parseScore(outerBeatmapHash: string): Score {
+		const beatmapHash = outerBeatmapHash;
 		const mode = this._bufferReader.readByte();
 		const version = this._bufferReader.readInt();
 		const unixTimestamp = this._bufferReader.readLongLong();
@@ -87,6 +89,7 @@ export class ScoresDbParser {
 		const experimentalMods = this._bufferReader.readString();
 
 		const scoreObj: Score = {
+			beatmapHash,
 			mode,
 			version,
 			unixTimestamp,
@@ -132,7 +135,7 @@ export class ScoresDbParser {
 			const scores: Score[] = [];
 
 			for (let j = 0; j < numScores; j++) {
-				scores.push(this.parseScore());
+				scores.push(this.parseScore(beatmapHash));
 			}
 
 			this._beatmapScores.push({ beatmapHash, scores });
@@ -142,4 +145,5 @@ export class ScoresDbParser {
 	get beatmapScores() {
 		return this._beatmapScores;
 	}
+	
 }

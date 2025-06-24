@@ -1,5 +1,12 @@
 {
     "scoresDbPath": "C:/Program Files (x86)/Steam/steamapps/common/McOsu/scores.db",
     "playerName": "Placeholder",
-    "outputJsonPath": "./playerStats.json"
+    "outputJsonPath": "./playerStats.json",
+    "osuApiKey": "",
+    "parseTopScores": true,
+    "parseRecentScores": true,
+    "amountTopScores": 5,
+    "amountRecentScores": 5,
+    "countRelaxScores": false,
+    "countAutopilotScores": false
 }

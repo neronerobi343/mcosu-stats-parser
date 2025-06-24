@@ -1,9 +1,167 @@
 {
-  "name": "Placeholder",
-  "pp": 1461.4028097700739,
-  "accuracy": 0.9441072532095459,
-  "level": 37,
-  "percentToNextLevel": 0.24346976576576576,
-  "totalScore": "33753628",
-  "totalPPScores": 265
+  "playerStats": {
+    "name": "Placeholder",
+    "pp": 1461.4028097700739,
+    "accuracy": 0.9441072532095459,
+    "level": 37,
+    "percentToNextLevel": 0.24346976576576576,
+    "totalScore": "33753628",
+    "totalPPScores": 265
+  },
+  "topScores": [
+    {
+      "beatmapSetId": "485903",
+      "beatmapName": "Yalta",
+      "artist": "DZIDZIO",
+      "difficultyName": "YOSHIKAWA HOSHI's Insane",
+      "date": "Tue Aug 22 2023 22:16:53 GMT-0700 (Pacific Daylight Time)",
+      "mods": [
+        "EZ",
+        "DT"
+      ],
+      "accuracy": 98.32285046577454,
+      "weight": 100,
+      "rawPP": 133.94065856933594,
+      "weightPP": 133.94065856933594,
+      "speedMultiplier": 1.5
+    },
+    {
+      "beatmapSetId": "1128448",
+      "beatmapName": "UNO",
+      "artist": "Little Big",
+      "difficultyName": "SHMIKLAK'S STEADY INSANE",
+      "date": "Thu Aug 17 2023 02:03:18 GMT-0700 (Pacific Daylight Time)",
+      "mods": [
+        "EZ"
+      ],
+      "accuracy": 97.93859720230103,
+      "weight": 95,
+      "rawPP": 121.64399719238281,
+      "weightPP": 115.56179733276366,
+      "speedMultiplier": 1.5
+    },
+    {
+      "beatmapSetId": "45923",
+      "beatmapName": "Fight Against Dangerous Hirasawa Yui & Susumu",
+      "artist": "Nico Nico Douga",
+      "difficultyName": "Kyshiro-tan",
+      "date": "Thu Aug 24 2023 20:12:28 GMT-0700 (Pacific Daylight Time)",
+      "mods": [
+        "EZ",
+        "DT"
+      ],
+      "accuracy": 98.43462109565735,
+      "weight": 90.25,
+      "rawPP": 117.71186065673828,
+      "weightPP": 106.2349542427063,
+      "speedMultiplier": 1.5
+    },
+    {
+      "beatmapSetId": "320894",
+      "beatmapName": "Scream",
+      "artist": "Zac Efron",
+      "difficultyName": "ahh",
+      "date": "Sun Aug 13 2023 19:47:57 GMT-0700 (Pacific Daylight Time)",
+      "mods": [
+        "EZ"
+      ],
+      "accuracy": 96.09544277191162,
+      "weight": 85.73749999999998,
+      "rawPP": 110.6866226196289,
+      "weightPP": 94.89994306850433,
+      "speedMultiplier": 1.5
+    },
+    {
+      "beatmapSetId": "534404",
+      "beatmapName": "We are Number One",
+      "artist": "Stefan Karl Stefansson & Mani Svavarsson",
+      "difficultyName": "No.1",
+      "date": "Mon Aug 21 2023 18:34:59 GMT-0700 (Pacific Daylight Time)",
+      "mods": [
+        "EZ"
+      ],
+      "accuracy": 97.48427867889404,
+      "weight": 81.45062499999999,
+      "rawPP": 86.87474060058594,
+      "weightPP": 70.76001918630598,
+      "speedMultiplier": 1.5
+    }
+  ],
+  "recentScores": [
+    {
+      "beatmapSetId": "1093626",
+      "beatmapName": "Temotemote~",
+      "artist": "Kyatatsu",
+      "difficultyName": "Expert",
+      "date": "Sun Jan 14 2024 13:38:41 GMT-0800 (Pacific Standard Time)",
+      "mods": [
+        "EZ"
+      ],
+      "accuracy": 91.20218753814697,
+      "weight": 100,
+      "rawPP": 15.100059509277344,
+      "weightPP": 15.100059509277344,
+      "speedMultiplier": 1
+    },
+    {
+      "beatmapSetId": "1093626",
+      "beatmapName": "Temotemote~",
+      "artist": "Kyatatsu",
+      "difficultyName": "Expert",
+      "date": "Sun Jan 14 2024 13:36:46 GMT-0800 (Pacific Standard Time)",
+      "mods": [
+        "EZ"
+      ],
+      "accuracy": 91.6939914226532,
+      "weight": 100,
+      "rawPP": 11.047327995300293,
+      "weightPP": 11.047327995300293,
+      "speedMultiplier": 1
+    },
+    {
+      "beatmapSetId": "1093626",
+      "beatmapName": "Temotemote~",
+      "artist": "Kyatatsu",
+      "difficultyName": "Expert",
+      "date": "Sun Jan 14 2024 13:35:30 GMT-0800 (Pacific Standard Time)",
+      "mods": [
+        "EZ"
+      ],
+      "accuracy": 92.51366257667542,
+      "weight": 100,
+      "rawPP": 30.215974807739258,
+      "weightPP": 30.215974807739258,
+      "speedMultiplier": 1
+    },
+    {
+      "beatmapSetId": "1093626",
+      "beatmapName": "Temotemote~",
+      "artist": "Kyatatsu",
+      "difficultyName": "Expert",
+      "date": "Sat Jan 13 2024 23:54:11 GMT-0800 (Pacific Standard Time)",
+      "mods": [
+        "EZ"
+      ],
+      "accuracy": 90.54644703865051,
+      "weight": 100,
+      "rawPP": 11.803590774536133,
+      "weightPP": 11.803590774536133,
+      "speedMultiplier": 1
+    },
+    {
+      "beatmapSetId": "1837538",
+      "beatmapName": "homeswitcher",
+      "artist": "gingus",
+      "difficultyName": "intianother",
+      "date": "Thu Jan 11 2024 22:05:52 GMT-0800 (Pacific Standard Time)",
+      "mods": [
+        "EZ"
+      ],
+      "accuracy": 85.97561120986938,
+      "weight": 100,
+      "rawPP": 7.752857208251953,
+      "weightPP": 7.752857208251953,
+      "speedMultiplier": 1
+    }
+  ]
 }
