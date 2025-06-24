@@ -234,7 +234,7 @@ async function getTopScores(ppScore, amount, apiKey) {
       topDisplayScores.push(ds);
       await sleep(250);
     } catch (err) {
-      console.log("Beatmap not found in osu! beatmap listing. Skipping...");
+      console.log(err);
     }
   }
   return topDisplayScores.sort((a, b) => b.rawPP - a.rawPP);
@@ -257,7 +257,7 @@ async function getRecentScores(beatmapScores, amount, playerName, apiKey) {
         datedDisplayScores.push(ds);
         await sleep(250);
       } catch (err) {
-        console.log("Beatmap not found in osu! beatmap listing. Skipping...");
+        console.log(err);
       }
     }
   }
@@ -267,12 +267,24 @@ async function getDisplayScore(score, topScoresLen, index, apiKey) {
   const url = `https://osu.ppy.sh/api/get_beatmaps?k=${apiKey}&m=0&h=${score.beatmapHash}`;
   const response = await fetch(url);
   const rjson = (await response.json())[0];
+  let beatmapSetId, beatmapName, artist, difficultyName;
+  if (!rjson) {
+    beatmapSetId = "";
+    beatmapName = "???";
+    artist = "Unknown";
+    difficultyName = "???";
+  } else {
+    beatmapSetId = rjson["beatmapset_id"];
+    beatmapName = rjson["title"];
+    artist = rjson["artist"];
+    difficultyName = rjson["version"];
+  }
   const weight = getWeightForIndex(topScoresLen - 1 - index);
   const ds = {
-    beatmapSetId: rjson["beatmapset_id"],
-    beatmapName: rjson["title"],
-    artist: rjson["artist"],
-    difficultyName: rjson["version"],
+    beatmapSetId,
+    beatmapName,
+    artist,
+    difficultyName,
     date: new Date(Number(score.unixTimestamp * BigInt(1e3))).toString(),
     mods: getEnabledMods(score.modsLegacy),
     accuracy: Math.fround(calculateAccuracy(score.count300, score.count100, score.count50, score.countMiss)) * 100,
