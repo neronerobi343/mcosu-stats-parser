@@ -1,6 +1,7 @@
 import fs from "fs/promises";
 import { ScoresDbParser } from "./ScoresParser";
 import { calculatePlayerStats, calculatePPScores, getRecentScores, getTopScores } from "./playerStats";
+import path from "path";
 
 async function main() {
     try {
@@ -8,7 +9,7 @@ async function main() {
         const { scoresDbPath, playerName, outputJsonPath, osuApiKey, 
             parseTopScores, parseRecentScores, 
             amountTopScores, amountRecentScores, 
-            countRelaxScores, countAutopilotScores } = JSON.parse(await fs.readFile("settings.json", "utf8"));
+            countRelaxScores, countAutopilotScores } = JSON.parse(await fs.readFile(path.join(__dirname, "settings.json"), "utf8"));
         if (playerName === "") throw new Error("Player name is empty.");
         if (osuApiKey === "" && (parseTopScores || parseRecentScores)) throw new Error("getTopScores or getRecentScores was requested in settings.json, but osu! API key is not provided.");
 

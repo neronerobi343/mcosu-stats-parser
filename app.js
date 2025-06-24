@@ -393,6 +393,7 @@ function getEnabledMods(modValue) {
 }
 
 // app.ts
+var import_path = __toESM(require("path"));
 async function main() {
   try {
     console.time("\u2705 SCORE PARSING COMPLETE");
@@ -407,7 +408,7 @@ async function main() {
       amountRecentScores,
       countRelaxScores,
       countAutopilotScores
-    } = JSON.parse(await import_promises.default.readFile("settings.json", "utf8"));
+    } = JSON.parse(await import_promises.default.readFile(import_path.default.join(__dirname, "settings.json"), "utf8"));
     if (playerName === "") throw new Error("Player name is empty.");
     if (osuApiKey === "" && (parseTopScores || parseRecentScores)) throw new Error("getTopScores or getRecentScores was requested in settings.json, but osu! API key is not provided.");
     const scoreBuffer = await import_promises.default.readFile(scoresDbPath);
