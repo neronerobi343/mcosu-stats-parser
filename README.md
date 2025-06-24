@@ -34,7 +34,7 @@ Make sure the latest LTS version of Node is installed.
 
 ### Execution
 1. `git clone https://github.com/neronerobi343/mcosu-stats-parser.git`
-2. `cd mcosu-player-stats-calculator && node app.js`
+2. `cd mcosu-stats-parser && node app.js`
 
 ### Settings
 Modify `settings.json` to change the settings of the tool.
