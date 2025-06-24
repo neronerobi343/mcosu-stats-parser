@@ -1,4 +1,4 @@
-# McOsu Player Stats Calculator
+# McOsu Stats Parser
 
 This tool is for parsing the `scores.db` from a McOsu installation and returns a JSON file with the following:
 - username
