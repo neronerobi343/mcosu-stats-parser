@@ -18,7 +18,8 @@ After parsing, the tool returns a JSON file with the following:
     - artist
     - difficultyName
     - date
-    - mods: an array of strings with the mods in two letter abbreviations, e.g. `[ "EZ", "DT" ]`
+    - mods: an array of strings with the mods in two letter abbreviations
+        - e.g. `[ "EZ", "DT" ]`
     - accuracy
     - weight
     - rawPP
