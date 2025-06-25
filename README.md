@@ -20,6 +20,7 @@ After parsing, the tool returns a JSON file with the following:
     - date
     - mods: an array of strings with the mods in two letter abbreviations
         - e.g. `[ "EZ", "DT" ]`
+    - grade
     - accuracy
     - weight
     - rawPP
@@ -45,6 +46,7 @@ Modify `settings.json` to change the settings of the tool.
 - `"outputJsonPath"`: path to the output JSON 
     - make sure that the filename itself (e.g. `playerStats.json`) is included in the path.
 - `"osuApiKey"`: more details on how to get a personal API key [here](https://github.com/ppy/osu-api/wiki).
+- `"fetchDelay"`: the amount of milliseconds between each `fetch` call when parsing top/recent scores.
 - `"parseTopScores"`, `"parseRecentScores"`: setting these to `true` will enable parsing (this will _not_ work if there's no API key provided).
 - `"amountTopScores"`, `"amountRecentScores"`: determines how many scores to parse for their respective category.
 - `"countRelaxScores"`, `"countAutopilotScores"`: tells the parser whether or not to count scores with Relax or Autopilot in the PP calculation for player stats.
@@ -55,9 +57,7 @@ Modify `settings.json` to change the settings of the tool.
 - When parsing top plays and recent scores from `scores.db`, if the score is set on a map that's not submitted to osu!'s beatmap listings, it'll give attributes like `beatmapSetId` default unknown values.
     - It'll still list the score with all other relevant information, though.
 - Use the top/recent score parsing at your discretion, as there's a rate limit to the osu! API.
-    - There's a 250ms delay between each `fetch` call to the API to prevent overloading, but regardless,  parsing too many top/recent scores (>100) is not recommended.
 - The `rawPP` and `weightPP` attributes of each score in `recentScores` will always be the same, and the `weight` will always be 100.
-    - Usually recent scores won't be top scores so I didn't bother getting the weights to make the tool run faster.
 
 ## Credits
 - [McOsu repo](https://github.com/McKay42/McOsu) for referencing all the parsing and calculations.
