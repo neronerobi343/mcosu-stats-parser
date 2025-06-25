@@ -3,6 +3,7 @@
     "playerName": "Placeholder",
     "outputJsonPath": "./playerStats.json",
     "osuApiKey": "",
+    "fetchDelay": 250,
     "parseTopScores": true,
     "parseRecentScores": true,
     "amountTopScores": 5,

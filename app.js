@@ -224,7 +224,7 @@ function calculatePlayerStats(ppScore, playerName) {
     totalPPScores: ppScores.length
   };
 }
-async function getTopScores(ppScore, amount, apiKey) {
+async function getTopScores(ppScore, amount, apiKey, fetchDelay) {
   let topDisplayScores = [];
   const { ppScores } = ppScore;
   const topPPScores = ppScores.slice(ppScores.length - amount);
@@ -232,14 +232,14 @@ async function getTopScores(ppScore, amount, apiKey) {
     try {
       const ds = await getDisplayScore(topPPScores[i], topPPScores.length, i, apiKey);
       topDisplayScores.push(ds);
-      await sleep(250);
+      await sleep(fetchDelay);
     } catch (err) {
       console.log(err);
     }
   }
   return topDisplayScores.sort((a, b) => b.rawPP - a.rawPP);
 }
-async function getRecentScores(beatmapScores, amount, playerName, apiKey) {
+async function getRecentScores(beatmapScores, amount, playerName, apiKey, fetchDelay) {
   const playerScores = [];
   const datedDisplayScores = [];
   for (const beatmap of beatmapScores) {
@@ -255,7 +255,7 @@ async function getRecentScores(beatmapScores, amount, playerName, apiKey) {
       try {
         const ds = await getDisplayScore(scoresByDate[i], 1, 0, apiKey);
         datedDisplayScores.push(ds);
-        await sleep(250);
+        await sleep(fetchDelay);
       } catch (err) {
         console.log(err);
       }
@@ -279,6 +279,7 @@ async function getDisplayScore(score, topScoresLen, index, apiKey) {
     artist = rjson["artist"];
     difficultyName = rjson["version"];
   }
+  const enabledMods = getEnabledMods(score.modsLegacy);
   const weight = getWeightForIndex(topScoresLen - 1 - index);
   const ds = {
     beatmapSetId,
@@ -286,7 +287,8 @@ async function getDisplayScore(score, topScoresLen, index, apiKey) {
     artist,
     difficultyName,
     date: new Date(Number(score.unixTimestamp * BigInt(1e3))).toString(),
-    mods: getEnabledMods(score.modsLegacy),
+    mods: enabledMods,
+    grade: calculateGrade(score.count300, score.count100, score.count50, score.countMiss, enabledMods),
     accuracy: Math.fround(calculateAccuracy(score.count300, score.count100, score.count50, score.countMiss)) * 100,
     weight: weight * 100,
     rawPP: score.pp,
@@ -391,6 +393,28 @@ function getEnabledMods(modValue) {
   }
   return enabledMods;
 }
+function calculateGrade(num300s, num100s, num50s, numMisses, mods) {
+  const totalNumHits = numMisses + num50s + num100s + num300s;
+  let percent300s = 0;
+  let percent50s = 0;
+  if (totalNumHits > 0) {
+    percent300s = num300s / totalNumHits;
+    percent50s = num50s / totalNumHits;
+  }
+  const isHidden = mods.includes("HD");
+  let grade = "D";
+  if (percent300s > 0.6)
+    grade = "C";
+  if (percent300s > 0.7 && numMisses === 0 || percent300s > 0.8)
+    grade = "B";
+  if (percent300s > 0.8 && numMisses === 0 || percent300s > 0.9)
+    grade = "A";
+  if (percent300s > 0.9 && percent50s <= 0.01 && numMisses === 0)
+    grade = isHidden ? "SH" : "S";
+  if (numMisses === 0 && num50s === 0 && num100s === 0)
+    grade = isHidden ? "XH" : "X";
+  return grade;
+}
 
 // app.ts
 var import_path = __toESM(require("path"));
@@ -402,6 +426,7 @@ async function main() {
       playerName,
       outputJsonPath,
       osuApiKey,
+      fetchDelay,
       parseTopScores,
       parseRecentScores,
       amountTopScores,
@@ -423,14 +448,14 @@ async function main() {
     if (parseTopScores) {
       console.log("Parsing top scores...");
       console.time("Top scores parsed");
-      const topScores = await getTopScores(ppScores, amountTopScores, osuApiKey);
+      const topScores = await getTopScores(ppScores, amountTopScores, osuApiKey, fetchDelay || 250);
       outputObj.topScores = topScores;
       console.timeEnd("Top scores parsed");
     }
     if (parseRecentScores) {
       console.log("Parsing recent scores...");
       console.time("Recent scores parsed");
-      const recentScores = await getRecentScores(sp.beatmapScores, amountRecentScores, playerName, osuApiKey);
+      const recentScores = await getRecentScores(sp.beatmapScores, amountRecentScores, playerName, osuApiKey, fetchDelay || 250);
       outputObj.recentScores = recentScores;
       console.timeEnd("Recent scores parsed");
     }

@@ -16,6 +16,7 @@ interface DisplayScore {
     difficultyName: string,
     date: string;
     mods: string[];
+    grade: string;
     accuracy: number;
     weight: number;
     rawPP: number;
@@ -79,7 +80,7 @@ export function calculatePlayerStats(ppScore: PPScore, playerName: string): Play
     }
 }
 
-export async function getTopScores(ppScore: PPScore, amount: number, apiKey: string): Promise<DisplayScore[]> {
+export async function getTopScores(ppScore: PPScore, amount: number, apiKey: string, fetchDelay: number): Promise<DisplayScore[]> {
     let topDisplayScores: DisplayScore[] = [];
     const { ppScores } = ppScore;
     const topPPScores = ppScores.slice(ppScores.length - amount);
@@ -87,7 +88,7 @@ export async function getTopScores(ppScore: PPScore, amount: number, apiKey: str
         try {
             const ds = await getDisplayScore(topPPScores[i], topPPScores.length, i, apiKey);
             topDisplayScores.push(ds);
-            await sleep(250);
+            await sleep(fetchDelay);
         } catch(err) {
             // console.log(err);
             console.log(err)
@@ -98,7 +99,7 @@ export async function getTopScores(ppScore: PPScore, amount: number, apiKey: str
     return topDisplayScores.sort((a, b) => b.rawPP - a.rawPP);
 }
 
-export async function getRecentScores(beatmapScores: BeatmapScores[], amount: number, playerName: string, apiKey: string): Promise<DisplayScore[]> {
+export async function getRecentScores(beatmapScores: BeatmapScores[], amount: number, playerName: string, apiKey: string, fetchDelay: number): Promise<DisplayScore[]> {
     const playerScores: Score[] = [];
     const datedDisplayScores: DisplayScore[] = [];
     for (const beatmap of beatmapScores) {
@@ -116,7 +117,7 @@ export async function getRecentScores(beatmapScores: BeatmapScores[], amount: nu
             try {
                 const ds = await getDisplayScore(scoresByDate[i], 1, 0 , apiKey);
                 datedDisplayScores.push(ds);
-                await sleep(250);
+                await sleep(fetchDelay);
             } catch(err) {
                 console.log(err)
             }
@@ -145,6 +146,8 @@ async function getDisplayScore(score: Score, topScoresLen: number, index: number
         artist = rjson["artist"];
         difficultyName = rjson["version"];
     }
+    
+    const enabledMods = getEnabledMods(score.modsLegacy);
 
     const weight = getWeightForIndex(topScoresLen - 1 - index);
     const ds: DisplayScore = {
@@ -153,7 +156,8 @@ async function getDisplayScore(score: Score, topScoresLen: number, index: number
         artist,
         difficultyName,
         date: new Date(Number(score.unixTimestamp * BigInt(1000))).toString(),
-        mods: getEnabledMods(score.modsLegacy),
+        mods: enabledMods,
+        grade: calculateGrade(score.count300, score.count100, score.count50, score.countMiss, enabledMods),
         accuracy: Math.fround(calculateAccuracy(score.count300, score.count100, score.count50, score.countMiss)) * 100,
         weight: weight * 100,
         rawPP: score.pp,
@@ -262,4 +266,32 @@ function getEnabledMods(modValue: number): string[] {
     }
 
     return enabledMods;
+}
+
+function calculateGrade(num300s: number, num100s: number, num50s: number, numMisses: number, mods: string[]): string {
+    const totalNumHits = numMisses + num50s + num100s + num300s;
+    
+    let percent300s = 0;
+    let percent50s = 0;
+    
+    if (totalNumHits > 0) {
+        percent300s = num300s / totalNumHits;
+        percent50s = num50s / totalNumHits;
+    }
+    
+    const isHidden = mods.includes("HD");
+    
+    let grade = "D";
+    if (percent300s > 0.6)
+		grade = "C";
+	if ((percent300s > 0.7 && numMisses === 0) || (percent300s > 0.8))
+		grade = "B";
+	if ((percent300s > 0.8 && numMisses === 0) || (percent300s > 0.9))
+		grade = "A";
+	if (percent300s > 0.9 && percent50s <= 0.01 && numMisses === 0)
+		grade = isHidden ? "SH" : "S";
+	if (numMisses === 0 && num50s === 0 && num100s === 0)
+		grade = isHidden ? "XH" : "X";
+
+    return grade;
 }

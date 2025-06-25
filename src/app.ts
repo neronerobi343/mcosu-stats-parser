@@ -6,7 +6,8 @@ import path from "path";
 async function main() {
     try {
         console.time("✅ SCORE PARSING COMPLETE");
-        const { scoresDbPath, playerName, outputJsonPath, osuApiKey, 
+        const { scoresDbPath, playerName, outputJsonPath, 
+            osuApiKey, fetchDelay,
             parseTopScores, parseRecentScores, 
             amountTopScores, amountRecentScores, 
             countRelaxScores, countAutopilotScores } = JSON.parse(await fs.readFile(path.join(__dirname, "settings.json"), "utf8"));
@@ -28,7 +29,7 @@ async function main() {
         if (parseTopScores){
             console.log("Parsing top scores...");
             console.time("Top scores parsed");
-            const topScores = await getTopScores(ppScores, amountTopScores, osuApiKey)
+            const topScores = await getTopScores(ppScores, amountTopScores, osuApiKey, fetchDelay || 250)
             outputObj.topScores = topScores;
             console.timeEnd("Top scores parsed");
         }
@@ -36,7 +37,7 @@ async function main() {
         if (parseRecentScores) {
             console.log("Parsing recent scores...");
             console.time("Recent scores parsed");
-            const recentScores = await getRecentScores(sp.beatmapScores, amountRecentScores, playerName, osuApiKey);
+            const recentScores = await getRecentScores(sp.beatmapScores, amountRecentScores, playerName, osuApiKey, fetchDelay || 250);
             outputObj.recentScores = recentScores;
             console.timeEnd("Recent scores parsed");
         }
