@@ -19,6 +19,7 @@
         "EZ",
         "DT"
       ],
+      "grade": "S",
       "accuracy": 98.32285046577454,
       "weight": 100,
       "rawPP": 133.94065856933594,
@@ -34,6 +35,7 @@
       "mods": [
         "EZ"
       ],
+      "grade": "A",
       "accuracy": 97.93859720230103,
       "weight": 95,
       "rawPP": 121.64399719238281,
@@ -50,6 +52,7 @@
         "EZ",
         "DT"
       ],
+      "grade": "S",
       "accuracy": 98.43462109565735,
       "weight": 90.25,
       "rawPP": 117.71186065673828,
@@ -65,6 +68,7 @@
       "mods": [
         "EZ"
       ],
+      "grade": "A",
       "accuracy": 96.09544277191162,
       "weight": 85.73749999999998,
       "rawPP": 110.6866226196289,
@@ -80,11 +84,93 @@
       "mods": [
         "EZ"
       ],
+      "grade": "A",
       "accuracy": 97.48427867889404,
       "weight": 81.45062499999999,
       "rawPP": 86.87474060058594,
       "weightPP": 70.76001918630598,
       "speedMultiplier": 1.5
+    },
+    {
+      "beatmapSetId": "581787",
+      "beatmapName": "Der Wald (kors k Remix)",
+      "artist": "Eleharmonica remixed by kors k",
+      "difficultyName": "Jace's Insane",
+      "date": "Tue Sep 05 2023 00:55:06 GMT-0700 (Pacific Daylight Time)",
+      "mods": [
+        "EZ"
+      ],
+      "grade": "A",
+      "accuracy": 96.08306884765625,
+      "weight": 77.37809374999998,
+      "rawPP": 63.94580078125,
+      "weightPP": 49.480041677703845,
+      "speedMultiplier": 1.2
+    },
+    {
+      "beatmapSetId": "234999",
+      "beatmapName": "Yureru Koi wa Nami no Gotoku",
+      "artist": "senya",
+      "difficultyName": "Catharsis",
+      "date": "Tue Aug 22 2023 22:01:40 GMT-0700 (Pacific Daylight Time)",
+      "mods": [
+        "EZ",
+        "DT"
+      ],
+      "grade": "A",
+      "accuracy": 93.44632625579834,
+      "weight": 73.50918906249998,
+      "rawPP": 58.754878997802734,
+      "weightPP": 43.19023508593791,
+      "speedMultiplier": 1.5
+    },
+    {
+      "beatmapSetId": "27043",
+      "beatmapName": "Arbelge no Tatakai",
+      "artist": "Sound Horizon",
+      "difficultyName": "Insane",
+      "date": "Tue Sep 05 2023 00:43:55 GMT-0700 (Pacific Daylight Time)",
+      "mods": [
+        "EZ"
+      ],
+      "grade": "A",
+      "accuracy": 95.08129954338074,
+      "weight": 69.83372960937497,
+      "rawPP": 57.962039947509766,
+      "weightPP": 40.477054253021876,
+      "speedMultiplier": 1.5
+    },
+    {
+      "beatmapSetId": "469782",
+      "beatmapName": "Din Don Dan",
+      "artist": "Ryu* feat.Mayumi Morinaga",
+      "difficultyName": "Din Don Dan",
+      "date": "Thu Aug 24 2023 20:02:46 GMT-0700 (Pacific Daylight Time)",
+      "mods": [
+        "EZ"
+      ],
+      "grade": "A",
+      "accuracy": 95.17446160316467,
+      "weight": 66.34204312890623,
+      "rawPP": 55.537811279296875,
+      "weightPP": 36.84491871176168,
+      "speedMultiplier": 1.2
+    },
+    {
+      "beatmapSetId": "973162",
+      "beatmapName": "Cross Time !!",
+      "artist": "Brandy",
+      "difficultyName": "Insane",
+      "date": "Sun Sep 10 2023 00:31:35 GMT-0700 (Pacific Daylight Time)",
+      "mods": [
+        "EZ"
+      ],
+      "grade": "A",
+      "accuracy": 93.29774379730225,
+      "weight": 63.02494097246091,
+      "rawPP": 55.472354888916016,
+      "weightPP": 34.961418924773355,
+      "speedMultiplier": 1.3
     }
   ],
   "recentScores": [
@@ -97,6 +183,7 @@
       "mods": [
         "EZ"
       ],
+      "grade": "B",
       "accuracy": 91.20218753814697,
       "weight": 100,
       "rawPP": 15.100059509277344,
@@ -112,6 +199,7 @@
       "mods": [
         "EZ"
       ],
+      "grade": "B",
       "accuracy": 91.6939914226532,
       "weight": 100,
       "rawPP": 11.047327995300293,
@@ -127,6 +215,7 @@
       "mods": [
         "EZ"
       ],
+      "grade": "A",
       "accuracy": 92.51366257667542,
       "weight": 100,
       "rawPP": 30.215974807739258,
@@ -142,6 +231,7 @@
       "mods": [
         "EZ"
       ],
+      "grade": "B",
       "accuracy": 90.54644703865051,
       "weight": 100,
       "rawPP": 11.803590774536133,
@@ -157,10 +247,91 @@
       "mods": [
         "EZ"
       ],
+      "grade": "B",
       "accuracy": 85.97561120986938,
       "weight": 100,
       "rawPP": 7.752857208251953,
       "weightPP": 7.752857208251953,
+      "speedMultiplier": 1
+    },
+    {
+      "beatmapSetId": "1837538",
+      "beatmapName": "homeswitcher",
+      "artist": "gingus",
+      "difficultyName": "intianother",
+      "date": "Thu Jan 11 2024 22:03:13 GMT-0800 (Pacific Standard Time)",
+      "mods": [
+        "EZ"
+      ],
+      "grade": "C",
+      "accuracy": 83.90243649482727,
+      "weight": 100,
+      "rawPP": 2.5769591331481934,
+      "weightPP": 2.5769591331481934,
+      "speedMultiplier": 1
+    },
+    {
+      "beatmapSetId": "1093626",
+      "beatmapName": "Temotemote~",
+      "artist": "Kyatatsu",
+      "difficultyName": "Expert",
+      "date": "Thu Jan 11 2024 21:37:46 GMT-0800 (Pacific Standard Time)",
+      "mods": [
+        "EZ"
+      ],
+      "grade": "A",
+      "accuracy": 92.13114976882935,
+      "weight": 100,
+      "rawPP": 15.977252006530762,
+      "weightPP": 15.977252006530762,
+      "speedMultiplier": 1
+    },
+    {
+      "beatmapSetId": "1093626",
+      "beatmapName": "Temotemote~",
+      "artist": "Kyatatsu",
+      "difficultyName": "Expert",
+      "date": "Thu Jan 11 2024 21:20:11 GMT-0800 (Pacific Standard Time)",
+      "mods": [
+        "EZ"
+      ],
+      "grade": "C",
+      "accuracy": 78.68852615356445,
+      "weight": 100,
+      "rawPP": 0.04755592718720436,
+      "weightPP": 0.04755592718720436,
+      "speedMultiplier": 1
+    },
+    {
+      "beatmapSetId": "1093626",
+      "beatmapName": "Temotemote~",
+      "artist": "Kyatatsu",
+      "difficultyName": "Insane",
+      "date": "Thu Jan 11 2024 21:18:43 GMT-0800 (Pacific Standard Time)",
+      "mods": [
+        "EZ"
+      ],
+      "grade": "A",
+      "accuracy": 92.80575513839722,
+      "weight": 100,
+      "rawPP": 18.022584915161133,
+      "weightPP": 18.022584915161133,
+      "speedMultiplier": 1
+    },
+    {
+      "beatmapSetId": "297140",
+      "beatmapName": "Lucky Monster",
+      "artist": "Kicco",
+      "difficultyName": "Relation",
+      "date": "Thu Jan 11 2024 21:17:20 GMT-0800 (Pacific Standard Time)",
+      "mods": [
+        "EZ"
+      ],
+      "grade": "B",
+      "accuracy": 89.81723189353943,
+      "weight": 100,
+      "rawPP": 3.0640008449554443,
+      "weightPP": 3.0640008449554443,
       "speedMultiplier": 1
     }
   ]
