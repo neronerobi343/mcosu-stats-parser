@@ -286,7 +286,7 @@ async function getDisplayScore(score, topScoresLen, index, apiKey) {
     beatmapName,
     artist,
     difficultyName,
-    date: new Date(Number(score.unixTimestamp * BigInt(1e3))).toString(),
+    date: new Date(Number(score.unixTimestamp * BigInt(1e3))).toLocaleString(),
     mods: enabledMods,
     grade: calculateGrade(score.count300, score.count100, score.count50, score.countMiss, enabledMods),
     accuracy: Math.fround(calculateAccuracy(score.count300, score.count100, score.count50, score.countMiss)) * 100,
