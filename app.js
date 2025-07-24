@@ -293,7 +293,8 @@ async function getDisplayScore(score, topScoresLen, index, apiKey) {
     weight: weight * 100,
     rawPP: score.pp,
     weightPP: score.pp * weight,
-    speedMultiplier: Number(score.speedMultiplier.toFixed(2))
+    speedMultiplier: Number(score.speedMultiplier.toFixed(2)),
+    totalStars: score.starsTomTotal
   };
   return ds;
 }

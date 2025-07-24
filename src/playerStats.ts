@@ -22,6 +22,7 @@ interface DisplayScore {
     rawPP: number;
     weightPP: number;
     speedMultiplier: number;
+    totalStars: number;
 }
 
 interface BeatmapDetails {
@@ -162,7 +163,8 @@ async function getDisplayScore(score: Score, topScoresLen: number, index: number
         weight: weight * 100,
         rawPP: score.pp,
         weightPP: score.pp * weight,
-        speedMultiplier: Number(score.speedMultiplier.toFixed(2))
+        speedMultiplier: Number(score.speedMultiplier.toFixed(2)),
+        totalStars: score.starsTomTotal
     }
     
     return ds;
