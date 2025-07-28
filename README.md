@@ -26,6 +26,7 @@ After parsing, the tool returns a JSON file with the following:
     - rawPP
     - weightPP
     - speedMultiplier
+    - totalStars
     
 Refer to `exampleStats.json` to see an output sample.
 
